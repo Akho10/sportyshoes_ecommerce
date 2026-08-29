@@ -22,7 +22,7 @@ public class Order {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
-	private int orderNum;
+//	private int orderNum;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -42,13 +42,13 @@ public class Order {
 		return id;
 	}
 
-	public int getOrderNum() {
-		return orderNum;
-	}
-
-	public void setOrderNum(int orderNum) {
-		this.orderNum = orderNum;
-	}
+//	public int getOrderNum() {
+//		return orderNum;
+//	}
+//
+//	public void setOrderNum(int orderNum) {
+//		this.orderNum = orderNum;
+//	}
 
 	public User getUser() {
 		return user;
