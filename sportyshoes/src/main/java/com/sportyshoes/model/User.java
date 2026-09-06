@@ -24,6 +24,8 @@ public class User {
 	@Column(name="full_name")
 	private String fullName;
 	
+	private String email;
+	
 	@OneToOne(mappedBy="user")
 	private Cart cart;
 	
@@ -42,6 +44,15 @@ public class User {
 
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
+	}
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Cart getCart() {
