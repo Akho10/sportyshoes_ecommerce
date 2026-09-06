@@ -5,5 +5,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+	//add
+	//login
+	//viewProd
+	//addProdToCart
 	
 }
