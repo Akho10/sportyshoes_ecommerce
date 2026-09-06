@@ -13,6 +13,8 @@ public class ProductService {
 
 	@Autowired
 	ProductRepository productRepository;
+	@Autowired
+	AdminService adminService;
 	
 	//add
 	public Product addProduct(Product product) {
@@ -27,6 +29,19 @@ public class ProductService {
 	//listById
 	public Product findProductById(long id){
 		return productRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Product not found"));
+	}
+	
+	//updateProduct
+	public Product updateProduct(long id, Product product) {
+		Product existingProduct = findProductById(id);
+		
+		existingProduct.setName(product.getName());
+		existingProduct.setDepartment(product.getDepartment());
+		existingProduct.setCategory(product.getCategory());
+		existingProduct.setPrice(product.getPrice());
+		existingProduct.setQuantity(product.getQuantity());
+		
+		return productRepository.save(existingProduct);
 	}
 	
 }
