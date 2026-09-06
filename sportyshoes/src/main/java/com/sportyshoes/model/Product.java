@@ -78,6 +78,13 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", department=" + department + ", category=" + category
+				+ ", price=" + price + ", quantity=" + quantity + ", orders=" + orders + ", cart=" + cart + "]";
+	}
+	
 	
 	
 }
