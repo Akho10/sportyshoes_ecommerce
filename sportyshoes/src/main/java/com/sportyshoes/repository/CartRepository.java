@@ -6,4 +6,5 @@ import com.sportyshoes.model.Cart;
 
 public interface CartRepository extends JpaRepository<Cart, Long>{
 
+	public Cart findCartByUserId(long id);
 }
