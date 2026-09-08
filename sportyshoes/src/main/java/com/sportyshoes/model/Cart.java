@@ -35,9 +35,9 @@ public class Cart {
 	private List<Product> products = new ArrayList<>();
 	
 	//REVISIT!
-	@OneToOne
-	@JoinColumn(name="payment")
-	private Payment payment;
+//	@OneToOne
+//	@JoinColumn(name="payment")
+//	private Payment payment;
 	
 	public Cart() {}
 
@@ -69,12 +69,12 @@ public class Cart {
 		this.products = products;
 	}
 
-	public Payment getPayment() {
-		return payment;
-	}
-
-	public void setPayment(Payment payment) {
-		this.payment = payment;
-	}
+//	public Payment getPayment() {
+//		return payment;
+//	}
+//
+//	public void setPayment(Payment payment) {
+//		this.payment = payment;
+//	}
 	
 }

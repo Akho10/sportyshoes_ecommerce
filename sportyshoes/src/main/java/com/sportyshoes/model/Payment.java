@@ -16,7 +16,7 @@ public class Payment {
 	private double amount;
 	
 	@OneToOne(mappedBy = "payment")
-	private Cart cart;
+	private Order order;
 	
 	public Payment() {
 		
@@ -38,12 +38,14 @@ public class Payment {
 		this.amount = amount;
 	}
 
-	public Cart getCart() {
-		return cart;
+	public Order getOrder() {
+		return order;
 	}
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
+
+	
 	
 }

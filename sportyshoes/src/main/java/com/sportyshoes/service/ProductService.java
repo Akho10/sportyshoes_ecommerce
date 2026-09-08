@@ -13,6 +13,7 @@ public class ProductService {
 
 	@Autowired
 	ProductRepository productRepository;
+	
 	@Autowired
 	AdminService adminService;
 	
@@ -44,4 +45,15 @@ public class ProductService {
 		return productRepository.save(existingProduct);
 	}
 	
+	//reduceQuantity
+	public void reduceQuantity(long productId) {
+		Product product = findProductById(productId);
+		
+		if(product.getQuantity() <= 0 ) {
+			throw new RuntimeException("Product is out of stock");
+		}
+		
+		product.setQuantity(product.getQuantity() - 1);
+		productRepository.save(product);
+	}
 }

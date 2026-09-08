@@ -28,6 +28,8 @@ public class Order {
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	private double orderAmount;
+	
 	@ManyToMany
 	@JoinTable(
 			name="order_items",
@@ -35,6 +37,10 @@ public class Order {
 			inverseJoinColumns = @JoinColumn(name="product_id")
 			)
 	private List<Product> products = new ArrayList<>();
+	
+	@OneToOne
+	@JoinColumn(name="payment")
+	private Payment payment;
 	
 	public Order() {}
 
@@ -57,6 +63,31 @@ public class Order {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+
+	public double getOrderAmount() {
+		return orderAmount;
+	}
+
+	public void setOrderAmount(double orderAmount) {
+		this.orderAmount = orderAmount;
+	}
+	
 	
 	
 }

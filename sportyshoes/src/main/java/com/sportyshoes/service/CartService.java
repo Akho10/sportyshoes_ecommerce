@@ -51,4 +51,10 @@ public class CartService {
 		 
 	}
 	//getCartByUser
+	public Cart findCartByUserId(long userId) {
+		return cartRepository.findCartByUserId(userId);
+	}
+	//updateQuanitity
+	//remove
+	
 }

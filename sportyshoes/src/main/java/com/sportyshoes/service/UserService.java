@@ -1,5 +1,7 @@
 package com.sportyshoes.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,11 @@ public class UserService {
 		
 	}
 	
+	//list
+	public List<User> getUsers(){
+		
+		return userRepository.findAll();
+	}
 	//login
 	public User userLogin(String fullName, String email) {
 		User user = userRepository.findByFullNameAndEmail(fullName, email);
@@ -42,7 +49,10 @@ public class UserService {
 	}
 	
 	
-	
+	//findById
+	public User findUserById(long id) {
+		return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found"));
+	}
 	
 	
 	//deleteById
