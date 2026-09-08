@@ -1,5 +1,6 @@
 package com.sportyshoes.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,6 +110,25 @@ public class OrderService {
 		//process payment
 		//save order
 		return orderRepository.save(order);
+		
+	}
+	
+	//getCategory
+	public List<String> getCategory(long orderId) {
+		Order order = orderRepository.findById(orderId).orElseThrow();
+		
+		if(order == null) {
+			throw new RuntimeException("Order not found");
+		}
+		
+		List<String> categories = new ArrayList<>();
+		
+		for(Product product: order.getProducts()) {
+			categories.add(product.getCategory());
+			
+		}
+		
+		return categories;
 		
 	}
 }
